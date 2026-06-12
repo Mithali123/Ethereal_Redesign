@@ -308,6 +308,7 @@ header, .hero, .marquee, .trusted, .services, .process, .work, .signature, .ethe
     line-height: 1.4;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .hero-stat-divider {
