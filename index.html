@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethereal — Digital Product Studio</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Simple styles for language switcher */
+        .language-switch a.active {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== PRELOADER ========== -->
+<div class="preloader" id="preloader">
+    <div class="preloader-logo">
+        <img src="img/logo.png" alt="Ethereal">
+    </div>
+    <div class="preloader-curtain preloader-curtain--left"></div>
+    <div class="preloader-curtain preloader-curtain--right"></div>
+</div>
+
+<!-- ========== AMBIENT BACKGROUND ========== -->
+<div class="bg-glow bg-glow--1"></div>
+<div class="bg-glow bg-glow--2"></div>
+<div class="bg-grid"></div>
+
+<!-- Header Section -->
+<header class="header">
+
+    <div class="logo">
+        <img src="img/logo.png" alt="Logo">
+    </div>
+
+    <nav class="navbar">
+
+        <a href="#work" class="nav-link" id="nav-work">Work</a>
+        <a href="#services" class="nav-link" id="nav-services">Services</a>
+        <a href="#process" class="nav-link" id="nav-process">Process</a>
+        <a href="#work" class="nav-link" id="nav-casestudies">Case Studies</a>
+        <a href="#pricing" class="nav-link" id="nav-pricing">Pricing</a>
+
+        <div class="language-switch">
+            <a href="#" id="en-btn" class="active">EN</a>
+            <span>/</span>
+            <a href="#" id="de-btn">DE</a>
+        </div>
+
+        <a href="contact.html" class="contact-btn" id="contact-btn">
+            Get In Touch →
+        </a>
+
+    </nav>
+
+    <div class="hamburger">☰</div>
+
+</header>
+
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+
+    <div class="hero-grid">
+
+        <div class="hero-content">
+
+            <span class="slide-tag" id="hero-tag">ETHEREAL DESIGN STUDIO</span>
+
+            <h1 id="hero-title">
+                Creative Thinking.<br>
+                Clear Results.
+            </h1>
+
+            <p id="hero-description">
+                A small, senior team designing and building digital products —
+                websites, apps and AI tools — for startups and brands that want
+                to move fast without cutting corners.
+            </p>
+
+            <div class="hero-cta-row">
+                <a href="contact.html" class="hero-btn hero-btn--primary" id="hero-btn-primary">
+                    Start Your Project →
+                </a>
+                <a href="#work" class="hero-btn hero-btn--secondary" id="hero-btn-secondary">
+                    View Our Work →
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-num" data-count="5" id="stat-projects-num">0</span>
+                    <span class="hero-stat-label" id="stat-projects-label">Projects<br>Delivered</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num" data-count="12" id="stat-clients-num">0</span>
+                    <span class="hero-stat-label" id="stat-clients-label">Happy<br>Clients</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== FLOATING PROJECT MOCKUPS ===== -->
+        <div class="hero-mockups">
+            <div class="mockup-ring"></div>
+
+            <div class="mockup-card mockup-card--dashboard">
+                <div class="mockup-bar">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="mockup-body">
+                    <div class="mockup-row mockup-row--chart">
+                        <div class="chart-bar" style="--h:38%"></div>
+                        <div class="chart-bar" style="--h:64%"></div>
+                        <div class="chart-bar" style="--h:48%"></div>
+                        <div class="chart-bar" style="--h:80%"></div>
+                        <div class="chart-bar" style="--h:56%"></div>
+                        <div class="chart-bar" style="--h:92%"></div>
+                    </div>
+                    <div class="mockup-row">
+                        <div class="mockup-pill"></div>
+                        <div class="mockup-pill mockup-pill--sm"></div>
+                    </div>
+                </div>
+                <div class="mockup-label" id="mockup-dashboard-label">Finance Dashboard</div>
+            </div>
+
+            <div class="mockup-card mockup-card--mobile">
+                <div class="mockup-phone-notch"></div>
+                <div class="mockup-phone-body">
+                    <div class="mockup-phone-header"></div>
+                    <div class="mockup-phone-card"></div>
+                    <div class="mockup-phone-card mockup-phone-card--sm"></div>
+                    <div class="mockup-phone-card mockup-phone-card--sm"></div>
+                </div>
+                <div class="mockup-label" id="mockup-mobile-label">Mobile App</div>
+            </div>
+
+            <div class="mockup-card mockup-card--chat">
+                <div class="mockup-bar">
+                    <span class="mockup-dot"></span>
+                    <span class="mockup-chat-title" id="chat-title">AI Assistant</span>
+                </div>
+                <div class="mockup-body mockup-body--chat">
+                    <div class="chat-bubble chat-bubble--in" id="chat-bubble-1">How can I track my order?</div>
+                    <div class="chat-bubble chat-bubble--out" id="chat-bubble-2">Sure — share your order ID and I'll pull it up instantly.</div>
+                    <div class="chat-typing"><span></span><span></span><span></span></div>
+                </div>
+                <div class="mockup-label" id="mockup-chat-label">AI Chatbot</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========== MARQUEE STRIP ========== -->
+<div class="marquee">
+    <div class="marquee-track" id="marquee-track">
+        <span>UI / UX DESIGN</span>
+        <span class="marquee-dot">✦</span>
+        <span>API & BACKEND</span>
+        <span class="marquee-dot">✦</span>
+        <span>MOBILE APPS</span>
+        <span class="marquee-dot">✦</span>
+        <span>AI & CHATBOTS</span>
+        <span class="marquee-dot">✦</span>
+        <span>FRONTEND DEVELOPMENT</span>
+        <span class="marquee-dot">✦</span>
+        <span>DIGITAL MARKETING</span>
+        <span class="marquee-dot">✦</span>
+    </div>
+</div>
+
+
+<section class="services" id="services">
+
+    <div class="services-header">
+        <span class="services-tag" id="services-tag">OUR SERVICES</span>
+
+        <h2 class="services-title" id="services-title">
+            WHAT WE <br>
+            <span id="services-title-span">DO BEST.</span>
+        </h2>
+    </div>
+
+    <div class="services-list">
+
+        <div class="service-row">
+            <div class="service-number">01</div>
+            <div class="service-content">
+                <h3 id="service-1-title">UI/UX DESIGN</h3>
+                <p id="service-1-desc">Research • Wireframes • Design Systems</p>
+            </div>
+            <div class="service-arrow">↗</div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-number">02</div>
+            <div class="service-content">
+                <h3 id="service-2-title">API & BACKEND</h3>
+                <p id="service-2-desc">Node.js • Databases • Secure APIs</p>
+            </div>
+            <div class="service-arrow">↗</div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-number">03</div>
+            <div class="service-content">
+                <h3 id="service-3-title">MOBILE APPS</h3>
+                <p id="service-3-desc">Flutter • iOS • Android</p>
+            </div>
+            <div class="service-arrow">↗</div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-number">04</div>
+            <div class="service-content">
+                <h3 id="service-4-title">AI SOLUTIONS</h3>
+                <p id="service-4-desc">Chatbots • AI Agents • Automation</p>
+            </div>
+            <div class="service-arrow">↗</div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-number">05</div>
+            <div class="service-content">
+                <h3 id="service-5-title">FRONTEND DEV</h3>
+                <p id="service-5-desc">React • Next.js • TypeScript</p>
+            </div>
+            <div class="service-arrow">↗</div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-number">06</div>
+            <div class="service-content">
+                <h3 id="service-6-title">DIGITAL MARKETING</h3>
+                <p id="service-6-desc">SEO • Content • Growth</p>
+            </div>
+            <div class="service-arrow">↗</div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========== PROCESS ========== -->
+<section class="process" id="process">
+
+    <div class="process-header">
+        <span class="services-tag" id="process-tag">HOW WE WORK</span>
+        <h2 class="services-title" id="process-title">
+            FROM IDEA<br>
+            <span id="process-title-span">TO LAUNCH.</span>
+        </h2>
+    </div>
+
+    <div class="process-timeline">
+
+        <div class="process-step">
+            <div class="process-num">01</div>
+            <div class="process-text">
+                <h3 id="process-step-1-title">Discover</h3>
+                <p id="process-step-1-desc">We start by understanding your goals, users and constraints.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="process-num">02</div>
+            <div class="process-text">
+                <h3 id="process-step-2-title">Research</h3>
+                <p id="process-step-2-desc">Competitive analysis and user research shape the direction.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="process-num">03</div>
+            <div class="process-text">
+                <h3 id="process-step-3-title">Design</h3>
+                <p id="process-step-3-desc">Wireframes and high-fidelity UI, refined with your feedback.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="process-num">04</div>
+            <div class="process-text">
+                <h3 id="process-step-4-title">Develop</h3>
+                <p id="process-step-4-desc">Clean, scalable code with continuous integration from day one.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="process-num">05</div>
+            <div class="process-text">
+                <h3 id="process-step-5-title">Launch</h3>
+                <p id="process-step-5-desc">We ship, monitor and support — then keep iterating with you.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========== FEATURED WORK ========== -->
+<section class="work" id="work">
+
+    <div class="work-header">
+        <span class="services-tag" id="work-tag">SELECTED WORK</span>
+        <h2 class="services-title" id="work-title">
+            PROJECTS THAT <br>
+            <span id="work-title-span">MOVE THE NEEDLE.</span>
+        </h2>
+    </div>
+
+    <div class="work-grid">
+
+        <a href="#" class="work-card work-card--large">
+            <div class="work-card-image work-card-image--finance"></div>
+            <div class="work-card-info">
+                <span class="work-tag" id="work-tag-1">FINTECH</span>
+                <h3 id="work-title-1">Jugl</h3>
+            </div>
+        </a>
+
+        <a href="#" class="work-card">
+            <div class="work-card-image work-card-image--chatbot"></div>
+            <div class="work-card-info">
+                <span class="work-tag" id="work-tag-2">AI</span>
+                <h3 id="work-title-2">Purple Quarter</h3>
+            </div>
+        </a>
+
+        <a href="#" class="work-card">
+            <div class="work-card-image work-card-image--health"></div>
+            <div class="work-card-info">
+                <span class="work-tag" id="work-tag-3">HEALTHCARE</span>
+                <h3 id="work-title-3">SaltBox</h3>
+            </div>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ========== SIGNATURE / WHY ETHEREAL ========== -->
+<section class="signature">
+    <div class="signature-inner">
+        <span class="services-tag" id="signature-tag">WHY ETHEREAL</span>
+        <h2 class="signature-title" id="signature-title">
+            Small team.<br>
+            Fast execution.<br>
+            No unnecessary meetings.<br>
+            <span id="signature-title-span">Built for startups.</span>
+        </h2>
+    </div>
+</section>
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="ethereal-footer">
+    <div class="footer-container">
+
+        <div class="footer-cta">
+            <h2 id="footer-cta-title">Let's Build Something Great</h2>
+            <a href="contact.html" class="hero-btn hero-btn--primary" id="footer-cta-btn">Start Your Project →</a>
+        </div>
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <div class="footer-logo" id="footer-logo">⚡ ETHEREAL</div>
+                <p class="brand-desc" id="footer-desc">
+                    Designing digital excellence with precision, creativity, and purpose.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">ig</a>
+                    <a href="#" class="social-icon" aria-label="Twitter/X">X</a>
+                    <a href="#" class="social-icon" aria-label="Behance">be</a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4 id="footer-explore">Explore</h4>
+                <ul>
+                    <li><a href="#work" id="footer-link-work">Work</a></li>
+                    <li><a href="#services" id="footer-link-services">Services</a></li>
+                    <li><a href="#process" id="footer-link-process">Process</a></li>
+                    <li><a href="#work" id="footer-link-casestudies">Case Studies</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4 id="footer-connect">Connect</h4>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <a href="mailto:hello@etherealdesigns.com" id="footer-email">hello@etherealdesigns.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <a href="tel:+919043544533" id="footer-phone">+91 90435 44533</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span id="footer-location">Chennai, India — Global</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright" id="copyright">
+                © 2026 · Ethereal Designs · All Rights Reserved
+            </div>
+            <div class="legal-simple">
+                <a href="#" id="footer-privacy">Privacy</a>
+                <a href="#" id="footer-terms">Terms</a>
+                <a href="#" id="footer-imprint">Imprint</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+// ========== PRELOADER ==========
+document.body.classList.add('preloading');
+window.addEventListener('load', function () {
+    var preloader = document.getElementById('preloader');
+    setTimeout(function () {
+        document.body.classList.remove('preloading');
+    }, 1300);
+    setTimeout(function () {
+        if (preloader) preloader.classList.add('is-done');
+    }, 2050);
+});
+
+// ========== HAMBURGER MENU ==========
+const hamburger = document.querySelector(".hamburger");
+const navbar = document.querySelector(".navbar");
+
+if (hamburger && navbar) {
+    hamburger.addEventListener("click", () => {
+        navbar.classList.toggle("active");
+    });
+}
+
+// ========== COUNT-UP STATS ==========
+(function(){
+    var nums = document.querySelectorAll('.hero-stat-num');
+    var done = false;
+    function run(){
+        if (done) return;
+        done = true;
+        nums.forEach(function(el){
+            var target = parseInt(el.getAttribute('data-count'), 10);
+            var current = 0;
+            var step = Math.max(1, Math.round(target / 40));
+            var t = setInterval(function(){
+                current += step;
+                if (current >= target) { current = target; clearInterval(t); }
+                el.textContent = current + '+';
+            }, 30);
+        });
+    }
+    if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){ if (e.isIntersecting) run(); });
+        }, { threshold: 0.4 });
+        var target = document.querySelector('.hero-stats');
+        if (target) obs.observe(target);
+    } else {
+        run();
+    }
+})();
+
+// ========== COMPLETE TRANSLATIONS ==========
+const translations = {
+    en: {
+        // Navigation
+        "nav-work": "Work",
+        "nav-services": "Services",
+        "nav-process": "Process",
+        "nav-casestudies": "Case Studies",
+        "nav-pricing": "Pricing",
+        "contact-btn": "Get In Touch →",
+        
+        // Hero
+        "hero-tag": "ETHEREAL DESIGN STUDIO",
+        "hero-title": "Creative Thinking.<br>Clear Results.",
+        "hero-description": "A small, senior team designing and building digital products — websites, apps and AI tools — for startups and brands that want to move fast without cutting corners.",
+        "hero-btn-primary": "Start Your Project →",
+        "hero-btn-secondary": "View Our Work →",
+        "stat-projects-label": "Projects<br>Delivered",
+        "stat-clients-label": "Happy<br>Clients",
+        
+        // Mockups
+        "mockup-dashboard": "Finance Dashboard",
+        "mockup-mobile": "Mobile App",
+        "mockup-chat": "AI Chatbot",
+        "chat-title": "AI Assistant",
+        "chat-bubble-1": "How can I track my order?",
+        "chat-bubble-2": "Sure — share your order ID and I'll pull it up instantly.",
+        
+        // Services
+        "services-tag": "OUR SERVICES",
+        "services-title": "WHAT WE <br>",
+        "services-title-span": "DO BEST.",
+        "service-1-title": "UI/UX DESIGN",
+        "service-1-desc": "Research • Wireframes • Design Systems",
+        "service-2-title": "API & BACKEND",
+        "service-2-desc": "Node.js • Databases • Secure APIs",
+        "service-3-title": "MOBILE APPS",
+        "service-3-desc": "Flutter • iOS • Android",
+        "service-4-title": "AI SOLUTIONS",
+        "service-4-desc": "Chatbots • AI Agents • Automation",
+        "service-5-title": "FRONTEND DEV",
+        "service-5-desc": "React • Next.js • TypeScript",
+        "service-6-title": "DIGITAL MARKETING",
+        "service-6-desc": "SEO • Content • Growth",
+        
+        // Process
+        "process-tag": "HOW WE WORK",
+        "process-title": "FROM IDEA<br>",
+        "process-title-span": "TO LAUNCH.",
+        "process-step-1-title": "Discover",
+        "process-step-1-desc": "We start by understanding your goals, users and constraints.",
+        "process-step-2-title": "Research",
+        "process-step-2-desc": "Competitive analysis and user research shape the direction.",
+        "process-step-3-title": "Design",
+        "process-step-3-desc": "Wireframes and high-fidelity UI, refined with your feedback.",
+        "process-step-4-title": "Develop",
+        "process-step-4-desc": "Clean, scalable code with continuous integration from day one.",
+        "process-step-5-title": "Launch",
+        "process-step-5-desc": "We ship, monitor and support — then keep iterating with you.",
+        
+        // Work
+        "work-tag": "SELECTED WORK",
+        "work-title": "PROJECTS THAT <br>",
+        "work-title-span": "MOVE THE NEEDLE.",
+        "work-tag-1": "FINTECH",
+        "work-title-1": "Jugl",
+        "work-tag-2": "AI",
+        "work-title-2": "Purple Quarter",
+        "work-tag-3": "HEALTHCARE",
+        "work-title-3": "SaltBox",
+        
+        // Signature
+        "signature-tag": "WHY ETHEREAL",
+        "signature-title": "Small team.<br>Fast execution.<br>No unnecessary meetings.<br>",
+        "signature-title-span": "Built for startups.",
+        
+        // Footer
+        "footer-cta-title": "Let's Build Something Great",
+        "footer-cta-btn": "Start Your Project →",
+        "footer-logo": "⚡ ETHEREAL",
+        "footer-desc": "Designing digital excellence with precision, creativity, and purpose.",
+        "footer-explore": "Explore",
+        "footer-link-work": "Work",
+        "footer-link-services": "Services",
+        "footer-link-process": "Process",
+        "footer-link-casestudies": "Case Studies",
+        "footer-connect": "Connect",
+        "footer-email": "hello@etherealdesigns.com",
+        "footer-phone": "+91 90435 44533",
+        "footer-location": "Chennai, India — Global",
+        "copyright": "© 2026 · Ethereal Designs · All Rights Reserved",
+        "footer-privacy": "Privacy",
+        "footer-terms": "Terms",
+        "footer-imprint": "Imprint"
+    },
+    de: {
+        // Navigation
+        "nav-work": "Arbeit",
+        "nav-services": "Dienstleistungen",
+        "nav-process": "Prozess",
+        "nav-casestudies": "Fallstudien",
+        "nav-pricing": "Preise",
+        "contact-btn": "Kontakt →",
+        
+        // Hero
+        "hero-tag": "ETHEREAL DESIGN STUDIO",
+        "hero-title": "Kreatives Denken.<br>Klare Ergebnisse.",
+        "hero-description": "Ein kleines, erfahrenes Team, das digitale Produkte entwirft und entwickelt — Websites, Apps und KI-Tools — für Startups und Marken, die schnell vorankommen wollen, ohne Abstriche zu machen.",
+        "hero-btn-primary": "Projekt starten →",
+        "hero-btn-secondary": "Arbeit ansehen →",
+        "stat-projects-label": "Projekte<br>Geliefert",
+        "stat-clients-label": "Zufriedene<br>Kunden",
+        
+        // Mockups
+        "mockup-dashboard": "Finanz-Dashboard",
+        "mockup-mobile": "Mobile App",
+        "mockup-chat": "KI-Chatbot",
+        "chat-title": "KI-Assistent",
+        "chat-bubble-1": "Wie kann ich meine Bestellung verfolgen?",
+        "chat-bubble-2": "Natürlich — teilen Sie Ihre Bestell-ID mit, und ich hole sie sofort.",
+        
+        // Services
+        "services-tag": "UNSERE DIENSTLEISTUNGEN",
+        "services-title": "WAS WIR <br>",
+        "services-title-span": "AM BESTEN KÖNNEN.",
+        "service-1-title": "UI/UX DESIGN",
+        "service-1-desc": "Forschung • Wireframes • Designsysteme",
+        "service-2-title": "API & BACKEND",
+        "service-2-desc": "Node.js • Datenbanken • Sichere APIs",
+        "service-3-title": "MOBILE APPS",
+        "service-3-desc": "Flutter • iOS • Android",
+        "service-4-title": "KI-LÖSUNGEN",
+        "service-4-desc": "Chatbots • KI-Agenten • Automatisierung",
+        "service-5-title": "FRONTEND ENTWICKLUNG",
+        "service-5-desc": "React • Next.js • TypeScript",
+        "service-6-title": "DIGITALES MARKETING",
+        "service-6-desc": "SEO • Content • Wachstum",
+        
+        // Process
+        "process-tag": "WIE WIR ARBEITEN",
+        "process-title": "VON DER IDEE<br>",
+        "process-title-span": "ZUM LAUNCH.",
+        "process-step-1-title": "Entdecken",
+        "process-step-1-desc": "Wir beginnen mit dem Verständnis Ihrer Ziele, Benutzer und Einschränkungen.",
+        "process-step-2-title": "Recherche",
+        "process-step-2-desc": "Wettbewerbsanalyse und Benutzerforschung bestimmen die Richtung.",
+        "process-step-3-title": "Design",
+        "process-step-3-desc": "Wireframes und hochauflösende UI, verfeinert mit Ihrem Feedback.",
+        "process-step-4-title": "Entwickeln",
+        "process-step-4-desc": "Sauberer, skalierbarer Code mit kontinuierlicher Integration von Tag eins.",
+        "process-step-5-title": "Starten",
+        "process-step-5-desc": "Wir liefern aus, überwachen und unterstützen — und arbeiten dann kontinuierlich mit Ihnen weiter.",
+        
+        // Work
+        "work-tag": "AUSGEWÄHLTE ARBEIT",
+        "work-title": "PROJEKTE, DIE <br>",
+        "work-title-span": "ETWAS BEWEGEN.",
+        "work-tag-1": "FINTECH",
+        "work-title-1": "Jugl",
+        "work-tag-2": "KI",
+        "work-title-2": "Purple Quarter",
+        "work-tag-3": "GESUNDHEITSWESEN",
+        "work-title-3": "SaltBox",
+        
+        // Signature
+        "signature-tag": "WARUM ETHEREAL",
+        "signature-title": "Kleines Team.<br>Schnelle Ausführung.<br>Keine unnötigen Besprechungen.<br>",
+        "signature-title-span": "Für Startups gebaut.",
+        
+        // Footer
+        "footer-cta-title": "Lass uns etwas Großartiges bauen",
+        "footer-cta-btn": "Projekt starten →",
+        "footer-logo": "⚡ ETHEREAL",
+        "footer-desc": "Digitale Exzellenz mit Präzision, Kreativität und Zielstrebigkeit.",
+        "footer-explore": "Entdecken",
+        "footer-link-work": "Arbeit",
+        "footer-link-services": "Dienstleistungen",
+        "footer-link-process": "Prozess",
+        "footer-link-casestudies": "Fallstudien",
+        "footer-connect": "Verbinden",
+        "footer-email": "hello@etherealdesigns.com",
+        "footer-phone": "+91 90435 44533",
+        "footer-location": "Chennai, Indien — Global",
+        "copyright": "© 2026 · Ethereal Designs · Alle Rechte vorbehalten",
+        "footer-privacy": "Datenschutz",
+        "footer-terms": "AGB",
+        "footer-imprint": "Impressum"
+    }
+};
+
+// Function to update marquee
+function updateMarquee(lang) {
+    const marqueeTrack = document.getElementById('marquee-track');
+    if (!marqueeTrack) return;
+    
+    const marqueeItems = {
+        en: ["UI / UX DESIGN", "API & BACKEND", "MOBILE APPS", "AI & CHATBOTS", "FRONTEND DEVELOPMENT", "DIGITAL MARKETING"],
+        de: ["UI / UX DESIGN", "API & BACKEND", "MOBILE APPS", "KI & CHATBOTS", "FRONTEND ENTWICKLUNG", "DIGITALES MARKETING"]
+    };
+    
+    const items = marqueeItems[lang];
+    let html = '';
+    items.forEach((item, index) => {
+        html += `<span>${item}</span>`;
+        if (index < items.length - 1) {
+            html += `<span class="marquee-dot">✦</span>`;
+        }
+    });
+    marqueeTrack.innerHTML = html;
+}
+
+// Function to set language
+function setLanguage(lang) {
+    // Update active button
+    document.getElementById('en-btn').classList.toggle('active', lang === 'en');
+    document.getElementById('de-btn').classList.toggle('active', lang === 'de');
+    
+    // Update all translatable elements
+    for (const [key, value] of Object.entries(translations[lang])) {
+        const element = document.getElementById(key);
+        if (element) {
+            if (key.includes('title') && (value.includes('<br>') || key === 'hero-title' || key === 'services-title' || key === 'process-title' || key === 'work-title' || key === 'signature-title')) {
+                element.innerHTML = value;
+            } else {
+                element.innerText = value;
+            }
+        }
+    }
+    
+    // Update marquee separately
+    updateMarquee(lang);
+    
+    // Save preference
+    localStorage.setItem('preferredLanguage', lang);
+}
+
+// Event listeners for language buttons
+document.getElementById('en-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    setLanguage('en');
+});
+
+document.getElementById('de-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    setLanguage('de');
+});
+
+// Load saved language
+const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+setLanguage(savedLang);
+</script>
+
+</body>
+</html>

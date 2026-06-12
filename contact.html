@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Ethereal Designs — Contact & Inquiries</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --lime: #d9ff00;
+  --bg: #050505;
+  --border: rgba(255,255,255,0.08);
+  --muted: #555;
+  --text-dim: #888;
+  --card-bg: rgba(255,255,255,0.02);
+}
+
+html, body {
+  width: 100%;
+  background: var(--bg);
+  font-family: 'Oswald', sans-serif;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+/* HEADER (sticky + responsive mobile nav) */
+.header {
+  position: sticky;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(5,5,5,0.96);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  padding: 0 40px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-text { 
+  font-size: 20px; font-weight: 800; 
+  background: linear-gradient(135deg, var(--lime) 0%, #b3cc00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 8px rgba(217,255,0,0.2);
+  letter-spacing: 2px;
+}
+
+/* desktop navigation */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+
+.nav-link {
+  text-decoration: none; color: #fff; font-size: 15px;
+  letter-spacing: 1px; text-transform: uppercase;
+  transition: color 0.25s; font-weight: 500;
+  position: relative;
+}
+.nav-link:hover { color: var(--lime); }
+.nav-link::after {
+  content: ''; position: absolute; left: 50%; bottom: -8px;
+  transform: translateX(-50%); width: 0; height: 2px;
+  background: var(--lime); box-shadow: 0 0 6px var(--lime);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+.language-switch {
+  display: flex; gap: 6px; align-items: center;
+  margin-left: 8px;
+}
+.lang-link {
+  text-decoration: none; color: #aaa; font-size: 13px;
+  font-weight: 600; transition: color 0.2s; cursor: pointer;
+}
+.lang-link.active { color: var(--lime); }
+.language-switch span { color: #444; }
+
+.contact-btn {
+  text-decoration: none; background: var(--lime); color: #050505;
+  padding: 10px 26px; border-radius: 40px; font-size: 14px;
+  font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  transition: all 0.3s; white-space: nowrap;
+}
+.contact-btn:hover { transform: translateY(-2px); box-shadow: 0 0 12px var(--lime); }
+
+/* mobile toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+  padding: 0;
+}
+.menu-toggle span {
+  width: 100%;
+  height: 2.5px;
+  background: #fff;
+  border-radius: 4px;
+  transition: all 0.25s ease-in-out;
+}
+.menu-toggle.active span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+
+/* mobile nav overlay */
+.mobile-nav {
+  position: fixed;
+  top: 75px;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: rgba(5,5,5,0.98);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  transition: height 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 28px;
+  padding-top: 0;
+  border-bottom: 1px solid rgba(217,255,0,0.1);
+}
+.mobile-nav.open {
+  height: 360px;
+  padding-top: 32px;
+  box-shadow: 0 20px 30px -12px rgba(0,0,0,0.6);
+}
+.mobile-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.2s, transform 0.2s;
+}
+.mobile-nav a:hover { color: var(--lime); transform: translateX(6px); }
+.mobile-nav .lang-mobile {
+  display: flex;
+  gap: 18px;
+  margin-top: 8px;
+}
+.mobile-nav .lang-mobile a {
+  font-size: 18px;
+  background: rgba(255,255,255,0.03);
+  padding: 6px 16px;
+  border-radius: 40px;
+}
+.mobile-nav .lang-mobile a.active { color: var(--lime); border: 1px solid rgba(217,255,0,0.3); }
+
+/* CONTACT GRID */
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 75px - 80px);
+  gap: 0;
+}
+
+/* LEFT PANEL */
+.contact-left {
+  padding: 60px 8% 70px;
+  border-right: 1px solid var(--border);
+  background: radial-gradient(circle at 0% 20%, rgba(217,255,0,0.02) 0%, transparent 70%);
+}
+.contact-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--lime); font-size: 12px; font-weight: 700;
+  letter-spacing: 4px; background: rgba(217,255,0,0.08);
+  padding: 6px 18px; border-radius: 40px; margin-bottom: 28px;
+}
+.contact-eyebrow::before {
+  content: ''; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--lime); box-shadow: 0 0 6px var(--lime);
+}
+.contact-left h1 {
+  font-size: clamp(42px, 5vw, 76px);
+  font-weight: 800; text-transform: uppercase;
+  line-height: 0.95; letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.contact-left h1 em { font-style: normal; color: transparent; -webkit-text-stroke: 1.8px var(--lime); }
+.contact-left > div > p {
+  color: var(--text-dim); font-size: 15px; line-height: 1.65;
+  max-width: 400px; margin-bottom: 36px;
+}
+.info-cards { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+.info-card {
+  display: flex; align-items: center; gap: 18px;
+  padding: 14px 22px; border: 1px solid var(--border);
+  border-radius: 20px; background: var(--card-bg);
+  transition: all 0.25s; text-decoration: none;
+}
+.info-card:hover { border-color: rgba(217,255,0,0.5); background: rgba(217,255,0,0.03); transform: translateX(6px);}
+.info-card-icon { font-size: 24px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(217,255,0,0.05); border-radius: 14px; }
+.info-card-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--muted); }
+.info-card-value { font-size: 15px; font-weight: 500; color: #e0e0e0; }
+.social-strip { display: flex; gap: 14px; flex-wrap: wrap; }
+.social-btn {
+  padding: 8px 20px; border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 60px; color: #aaa; font-size: 12px;
+  font-weight: 600; text-transform: uppercase; text-decoration: none;
+  transition: 0.2s;
+}
+.social-btn:hover { border-color: var(--lime); color: var(--lime); background: rgba(217,255,0,0.05); }
+
+/* RIGHT FORM */
+.contact-right {
+  padding: 60px 8% 70px;
+  background: rgba(0,0,0,0.2);
+  overflow-y: auto;
+}
+.form-title { font-size: 20px; font-weight: 700; text-transform: uppercase; margin-bottom: 32px; letter-spacing: 1.5px; }
+.form-title span { color: var(--lime); border-bottom: 2px solid var(--lime); padding-bottom: 4px; }
+.contact-form { display: flex; flex-direction: column; gap: 20px; transition: opacity 0.3s; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+.form-group input, .form-group select, .form-group textarea {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+  border-radius: 14px; padding: 14px 18px; color: #fff;
+  font-family: 'Oswald', sans-serif; font-size: 14px; outline: none;
+  transition: all 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: rgba(217,255,0,0.5); background: rgba(217,255,0,0.02);
+  box-shadow: 0 0 0 3px rgba(217,255,0,0.08);
+}
+.phone-input-wrap {
+  display: flex; border: 1px solid var(--border);
+  border-radius: 14px; background: rgba(255,255,255,0.04);
+  transition: 0.2s; position: relative;
+}
+.phone-input-wrap:focus-within { border-color: rgba(217,255,0,0.5); box-shadow: 0 0 0 3px rgba(217,255,0,0.08);}
+.country-trigger {
+  display: flex; align-items: center; gap: 8px; padding: 14px 16px;
+  background: rgba(0,0,0,0.3); border-right: 1px solid var(--border);
+  border-radius: 14px 0 0 14px; cursor: pointer; white-space: nowrap;
+}
+.country-trigger .flag { font-size: 18px; }
+.country-trigger .dial { font-size: 14px; font-weight: 500; color: #ddd; }
+.country-dropdown {
+  position: absolute; top: calc(100% + 8px); left: 0; width: 300px;
+  background: #111; border: 1px solid #2a2a2a; border-radius: 20px;
+  z-index: 200; display: none; box-shadow: 0 20px 35px rgba(0,0,0,0.7);
+}
+.country-dropdown.open { display: block; }
+.country-search { padding: 12px; border-bottom: 1px solid #222; }
+.country-search input { width: 100%; background: #1e1e1e; border: none; border-radius: 30px; padding: 8px 14px; color: white; }
+.country-list { max-height: 240px; overflow-y: auto; }
+.country-option { display: flex; justify-content: space-between; padding: 10px 16px; cursor: pointer; }
+.country-option:hover { background: #1f1f1f; }
+.co-left { display: flex; gap: 12px; align-items: center; }
+.phone-number-input {
+  flex: 1; background: transparent !important; border: none !important;
+  padding: 14px 16px !important; border-radius: 0 14px 14px 0 !important;
+}
+.submit-btn {
+  background: var(--lime); color: #050505; border: none;
+  padding: 16px; border-radius: 60px; font-weight: 800;
+  font-size: 16px; letter-spacing: 1.5px; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  margin-top: 8px; cursor: pointer; transition: 0.25s;
+}
+.submit-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(217,255,0,0.35); gap: 16px; }
+.form-note { font-size: 11px; color: #444; text-align: center; margin-top: 10px; }
+.success-msg {
+  display: none; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center; padding: 50px 20px;
+}
+.success-msg.show { display: flex; }
+.success-check { width: 70px; height: 70px; border-radius: 50%; background: rgba(217,255,0,0.1); border: 1px solid var(--lime); font-size: 32px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px;}
+
+/* FOOTER */
+.footer {
+  padding: 20px 60px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 15px; background: #020202;
+}
+.footer p { font-size: 12px; color: #3a3a3a; }
+.footer-socials { display: flex; gap: 12px; }
+.footer-socials a {
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid #222;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; color: #666; transition: 0.2s;
+}
+.footer-socials a:hover { border-color: var(--lime); color: var(--lime); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .contact-wrap { grid-template-columns: 1fr; }
+  .contact-left { border-right: none; border-bottom: 1px solid var(--border); }
+}
+@media (max-width: 850px) {
+  .navbar { display: none; }
+  .menu-toggle { display: flex; }
+  .header { padding: 0 24px; }
+  .contact-left, .contact-right { padding: 50px 6%; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 550px) {
+  .header { height: 68px; }
+  .menu-toggle { width: 28px; height: 22px; }
+  .contact-left h1 { font-size: 48px; }
+  .info-card { padding: 12px 16px; }
+  .footer { padding: 18px 24px; flex-direction: column; text-align: center; }
+  .country-dropdown { width: 260px; left: 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <span class="logo-text">⚡ ETHEREAL</span>
+  </div>
+  
+  <!-- Desktop nav -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-link" data-key="nav_home">Home</a>
+    <a href="#" class="nav-link" data-key="nav_clients">Clients & Work</a>
+    <a href="#" class="nav-link" data-key="nav_trust">Teams Trust</a>
+    <a href="index.html#services" class="nav-link" data-key="nav_services">Services</a>
+    <a href="#" class="nav-link" data-key="nav_pricing">Pricing</a>
+    <div class="language-switch">
+      <a class="lang-link active" data-lang="en">EN</a>
+      <span>/</span>
+      <a class="lang-link" data-lang="de">DE</a>
+    </div>
+  </nav>
+  
+  <a href="contact.html" class="contact-btn" data-key="contact_btn">Get in Touch</a>
+  
+  <button class="menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile navigation overlay -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" data-key="nav_home">Home</a>
+  <a href="#" data-key="nav_clients">Clients & Work</a>
+  <a href="#" data-key="nav_trust">Teams Trust</a>
+  <a href="services.html#services" data-key="nav_services">Services</a>
+  <a href="#" data-key="nav_pricing">Pricing</a>
+  <div class="lang-mobile">
+    <a class="lang-mobile-link" data-lang="en">EN</a>
+    <a class="lang-mobile-link" data-lang="de">DE</a>
+  </div>
+  <a href="contact.html" style="background: rgba(217,255,0,0.1); padding: 8px 24px; border-radius: 40px; margin-top: 8px;" data-key="contact_btn">Contact</a>
+</div>
+
+<main class="main-content">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <div>
+        <div class="contact-eyebrow" data-key="eyebrow">Let's Connect</div>
+        <h1><span data-key="heading_line1">Get In</span><br><em data-key="heading_line2">Touch.</em></h1>
+        <p data-key="desc_text">Have a visionary project? We craft digital experiences that resonate. Reach out and let's shape the future together.</p>
+
+        <div class="info-cards">
+          <a href="mailto:hello@etherealdesigns.com" class="info-card">
+            <div class="info-card-icon">✉️</div>
+            <div class="info-card-body">
+              <div class="info-card-label" data-key="email_label">Email</div>
+              <div class="info-card-value">hello@etherealdesigns.com</div>
+            </div>
+          </a>
+          <a href="https://wa.me/919043544533" class="info-card">
+            <div class="info-card-icon">💬</div>
+            <div class="info-card-body">
+              <div class="info-card-label" data-key="whatsapp_label">WhatsApp</div>
+              <div class="info-card-value">+91 90435 44533</div>
+            </div>
+          </a>
+          <div class="info-card">
+            <div class="info-card-icon">📍</div>
+            <div class="info-card-body">
+              <div class="info-card-label" data-key="location_label">Location</div>
+              <div class="info-card-value" data-key="location_value">Chennai, India — Global</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-strip">
+          <a href="#" class="social-btn">in LinkedIn</a>
+          <a href="#" class="social-btn">ig Instagram</a>
+          <a href="#" class="social-btn">wa WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <div class="form-title"><span data-key="form_title">Send a message</span></div>
+
+      <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname" data-key="first_name_label">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Mithali" required />
+          </div>
+          <div class="form-group">
+            <label for="lname" data-key="last_name_label">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Raj" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" data-key="email_form_label">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required />
+        </div>
+
+        <div class="form-group">
+          <label data-key="phone_label">Phone Number</label>
+          <div class="phone-input-wrap" id="phoneWrap">
+            <div class="country-trigger" id="countryTrigger" onclick="toggleDropdown()">
+              <span class="flag" id="selectedFlag">🇮🇳</span>
+              <span class="dial" id="selectedDial">+91</span>
+              <span class="chevron" style="font-size: 10px;">▼</span>
+            </div>
+            <div class="country-dropdown" id="countryDropdown">
+              <div class="country-search">
+                <input type="text" id="countrySearch" placeholder="Search country..." oninput="filterCountries(this.value)" />
+              </div>
+              <div class="country-list" id="countryList"></div>
+            </div>
+            <input type="tel" class="phone-number-input" id="phoneNumber" name="phone" placeholder="90435 44533" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message" data-key="project_label">Project Details</label>
+          <textarea id="message" name="message" rows="3" placeholder="Describe your vision..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" data-key="submit_btn">
+          Send Message <span class="arrow">→</span>
+        </button>
+        <p class="form-note" data-key="form_note">We reply within 24h · 100% confidentiality.</p>
+      </form>
+
+      <div class="success-msg" id="successMsg">
+        <div class="success-check">✓</div>
+        <h3 data-key="success_title">Message Delivered</h3>
+        <p data-key="success_text">Thanks for reaching out. Our team will get back to you shortly.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <p data-key="footer_copyright">© 2026 · Ethereal Designs · All Rights Reserved</p>
+  <div class="footer-socials">
+    <a href="#" title="LinkedIn">in</a>
+    <a href="#" title="Instagram">ig</a>
+    <a href="#" title="WhatsApp">wa</a>
+  </div>
+</footer>
+
+<script>
+// ---------- BILINGUAL TRANSLATIONS (EN + DE) ----------
+const translations = {
+  en: {
+    nav_home: "Home",
+    nav_clients: "Clients & Work",
+    nav_trust: "Teams Trust",
+    nav_services: "Services",
+    nav_pricing: "Pricing",
+    contact_btn: "Get in Touch",
+    eyebrow: "Let's Connect",
+    heading_line1: "Get In",
+    heading_line2: "Touch.",
+    desc_text: "Have a visionary project? We craft digital experiences that resonate. Reach out and let's shape the future together.",
+    email_label: "Email",
+    whatsapp_label: "WhatsApp",
+    location_label: "Location",
+    location_value: "Chennai, India — Global",
+    form_title: "Send a message",
+    first_name_label: "First Name",
+    last_name_label: "Last Name",
+    email_form_label: "Email Address",
+    phone_label: "Phone Number",
+    project_label: "Project Details",
+    submit_btn: "Send Message",
+    form_note: "We reply within 24h · 100% confidentiality.",
+    success_title: "Message Delivered",
+    success_text: "Thanks for reaching out. Our team will get back to you shortly.",
+    footer_copyright: "© 2026 · Ethereal Designs · All Rights Reserved"
+  },
+  de: {
+    nav_home: "Startseite",
+    nav_clients: "Kunden & Arbeit",
+    nav_trust: "Vertrauen",
+    nav_services: "Leistungen",
+    nav_pricing: "Preise",
+    contact_btn: "Kontakt",
+    eyebrow: "Verbinden wir uns",
+    heading_line1: "Kontaktieren",
+    heading_line2: "Sie uns.",
+    desc_text: "Haben Sie ein visionäres Projekt? Wir gestalten digitale Erlebnisse, die begeistern. Kontaktieren Sie uns und gestalten Sie gemeinsam die Zukunft.",
+    email_label: "E-Mail",
+    whatsapp_label: "WhatsApp",
+    location_label: "Standort",
+    location_value: "Chennai, Indien — Global",
+    form_title: "Nachricht senden",
+    first_name_label: "Vorname",
+    last_name_label: "Nachname",
+    email_form_label: "E-Mail Adresse",
+    phone_label: "Telefonnummer",
+    project_label: "Projektdetails",
+    submit_btn: "Nachricht senden",
+    form_note: "Antwort innerhalb 24h · 100% Vertraulichkeit.",
+    success_title: "Nachricht gesendet",
+    success_text: "Danke für Ihre Nachricht. Unser Team meldet sich in Kürze.",
+    footer_copyright: "© 2026 · Ethereal Designs · Alle Rechte vorbehalten"
+  }
+};
+
+let currentLang = 'en';
+
+function updateLanguage(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  // update all elements with data-key attribute
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (t[key] !== undefined) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        // handle placeholders maybe, but we keep original for now, but we can update placeholder if needed
+      } else if (el.tagName === 'BUTTON') {
+        // special case for button inner html includes arrow
+        if (key === 'submit_btn') {
+          el.innerHTML = `${t[key]} <span class="arrow">→</span>`;
+        } else {
+          el.textContent = t[key];
+        }
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+  // Update heading special (because has inner em)
+  const headingLine1 = document.querySelector('[data-key="heading_line1"]');
+  const headingLine2 = document.querySelector('[data-key="heading_line2"]');
+  if (headingLine1) headingLine1.textContent = t.heading_line1;
+  if (headingLine2) headingLine2.textContent = t.heading_line2;
+  
+  // Update location value specifically
+  const locValue = document.querySelector('[data-key="location_value"]');
+  if (locValue) locValue.textContent = t.location_value;
+  
+  // active class for language toggles
+  document.querySelectorAll('.lang-link, .lang-mobile-link').forEach(btn => {
+    if (btn.getAttribute('data-lang') === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  // store preference
+  localStorage.setItem('ethereal_lang', lang);
+}
+
+// Event listeners for language switching (both desktop and mobile)
+document.querySelectorAll('.lang-link, .lang-mobile-link').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const lang = btn.getAttribute('data-lang');
+    if (lang) updateLanguage(lang);
+  });
+});
+
+// load saved language
+const savedLang = localStorage.getItem('ethereal_lang');
+if (savedLang && (savedLang === 'en' || savedLang === 'de')) {
+  updateLanguage(savedLang);
+} else {
+  updateLanguage('en');
+}
+
+// ---------- COUNTRY LIST DATA ----------
+const COUNTRIES = [
+  { code: "IN", flag: "🇮🇳", name: "India", dial: "+91" },
+  { code: "US", flag: "🇺🇸", name: "United States", dial: "+1" },
+  { code: "GB", flag: "🇬🇧", name: "United Kingdom", dial: "+44" },
+  { code: "AE", flag: "🇦🇪", name: "United Arab Emirates", dial: "+971" },
+  { code: "AU", flag: "🇦🇺", name: "Australia", dial: "+61" },
+  { code: "CA", flag: "🇨🇦", name: "Canada", dial: "+1" },
+  { code: "DE", flag: "🇩🇪", name: "Germany", dial: "+49" },
+  { code: "FR", flag: "🇫🇷", name: "France", dial: "+33" },
+  { code: "JP", flag: "🇯🇵", name: "Japan", dial: "+81" },
+  { code: "BR", flag: "🇧🇷", name: "Brazil", dial: "+55" },
+  { code: "SG", flag: "🇸🇬", name: "Singapore", dial: "+65" },
+  { code: "ZA", flag: "🇿🇦", name: "South Africa", dial: "+27" },
+  { code: "NG", flag: "🇳🇬", name: "Nigeria", dial: "+234" },
+  { code: "PK", flag: "🇵🇰", name: "Pakistan", dial: "+92" },
+  { code: "LK", flag: "🇱🇰", name: "Sri Lanka", dial: "+94" },
+  { code: "MY", flag: "🇲🇾", name: "Malaysia", dial: "+60" },
+  { code: "KR", flag: "🇰🇷", name: "South Korea", dial: "+82" },
+  { code: "IT", flag: "🇮🇹", name: "Italy", dial: "+39" },
+  { code: "ES", flag: "🇪🇸", name: "Spain", dial: "+34" },
+  { code: "MX", flag: "🇲🇽", name: "Mexico", dial: "+52" },
+  { code: "NL", flag: "🇳🇱", name: "Netherlands", dial: "+31" },
+  { code: "SE", flag: "🇸🇪", name: "Sweden", dial: "+46" },
+  { code: "CH", flag: "🇨🇭", name: "Switzerland", dial: "+41" }
+];
+
+let selectedCountry = COUNTRIES[0];
+let filteredCountries = [...COUNTRIES];
+
+function renderCountryList(list) {
+  const container = document.getElementById('countryList');
+  if (!container) return;
+  container.innerHTML = list.map(c => `
+    <div class="country-option ${c.code === selectedCountry.code ? 'selected' : ''}" onclick="selectCountry('${c.code}')">
+      <div class="co-left">
+        <span class="co-flag">${c.flag}</span>
+        <span class="co-name">${c.name}</span>
+      </div>
+      <span class="co-code">${c.dial}</span>
+    </div>
+  `).join('');
+}
+
+function filterCountries(searchTerm) {
+  const term = searchTerm.toLowerCase();
+  filteredCountries = COUNTRIES.filter(c => 
+    c.name.toLowerCase().includes(term) || 
+    c.dial.includes(term) || 
+    c.code.toLowerCase().includes(term)
+  );
+  renderCountryList(filteredCountries);
+}
+
+function selectCountry(code) {
+  const found = COUNTRIES.find(c => c.code === code);
+  if (found) {
+    selectedCountry = found;
+    document.getElementById('selectedFlag').textContent = selectedCountry.flag;
+    document.getElementById('selectedDial').textContent = selectedCountry.dial;
+    closeDropdown();
+    renderCountryList(filteredCountries);
+  }
+}
+
+function toggleDropdown() {
+  const dd = document.getElementById('countryDropdown');
+  if (!dd) return;
+  const isOpen = dd.classList.contains('open');
+  if (isOpen) closeDropdown();
+  else {
+    dd.classList.add('open');
+    setTimeout(() => {
+      const searchInput = document.getElementById('countrySearch');
+      if (searchInput) searchInput.focus();
+    }, 40);
+  }
+}
+
+function closeDropdown() {
+  const dd = document.getElementById('countryDropdown');
+  if (dd) dd.classList.remove('open');
+  const searchField = document.getElementById('countrySearch');
+  if (searchField) searchField.value = '';
+  filteredCountries = [...COUNTRIES];
+  renderCountryList(filteredCountries);
+}
+
+document.addEventListener('click', function(e) {
+  const wrap = document.getElementById('phoneWrap');
+  if (wrap && !wrap.contains(e.target)) closeDropdown();
+});
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const form = document.getElementById('contactForm');
+  const successDiv = document.getElementById('successMsg');
+  if (form && successDiv) {
+    form.style.transition = 'opacity 0.25s ease';
+    form.style.opacity = '0';
+    setTimeout(() => {
+      form.style.display = 'none';
+      successDiv.classList.add('show');
+    }, 280);
+  }
+}
+
+renderCountryList(COUNTRIES);
+
+// Mobile navigation toggle
+const menuBtn = document.getElementById('mobileMenuToggle');
+const mobileNav = document.getElementById('mobileNav');
+
+function toggleMobileNav() {
+  if (!menuBtn || !mobileNav) return;
+  const isOpen = mobileNav.classList.contains('open');
+  if (isOpen) {
+    mobileNav.classList.remove('open');
+    menuBtn.classList.remove('active');
+  } else {
+    mobileNav.classList.add('open');
+    menuBtn.classList.add('active');
+  }
+}
+if (menuBtn) menuBtn.addEventListener('click', toggleMobileNav);
+document.querySelectorAll('.mobile-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (mobileNav.classList.contains('open')) {
+      mobileNav.classList.remove('open');
+      if (menuBtn) menuBtn.classList.remove('active');
+    }
+  });
+});
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 850 && mobileNav && mobileNav.classList.contains('open')) {
+    mobileNav.classList.remove('open');
+    if (menuBtn) menuBtn.classList.remove('active');
+  }
+});
+</script>
+</body>
+</html>
